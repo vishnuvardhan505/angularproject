@@ -1,0 +1,130 @@
+<!-- <section>
+    <div style="float: left">
+        <div *ngFor="let item of information" style="float: left;margin:5px">
+            <div style="width: 450px;">
+                <figure>
+                    <img src="../../assets/images/contact/{{item.img}}" alt="" class="w-100">
+                    <figcaption>{{item.details}}</figcaption>
+                </figure>
+            </div>
+        </div>
+    </div>
+</section>
+<div style="clear: both-clear">&nbsp;</div>
+ <section class="container">
+    <div style="float: left">
+        <div *ngFor="let item of information" style="float: left">
+            <div style="width: 200px;">
+                <figure>
+                    <img src="../../assets/images/contact/{{item.img}}" alt="" class="w-100">
+                    <figcaption>{{item.details}}</figcaption>
+                </figure>
+            </div>
+
+        </div>
+
+    </div>
+</section>
+<div style="clear: both-clear">&nbsp;</div> -->
+<section class="container col-xl-8 offset-xl-2 py-5">
+    <p class="text-center text-danger">Course Enquery form</p>
+    <form name="form" (ngSubmit)="f.form.valid && onSubmit()" #f="ngForm" novalidate>
+        <div class="form-group">
+            <label for="name">Enter Your First name</label>
+            <input type="text" class="form-control" id="name" aria-describedby="name" placeholder="Enter Your Name" name="firstName" [(ngModel)]="model.firstName" #firstName="ngModel" [ngClass]="{ 'is-invalid': f.submitted && firstName.invalid }" required minlength="8"
+                maxlength="12" />
+            <div *ngIf="f.submitted && firstName.invalid" class="invalid-feedback">
+                <div *ngIf="firstName.errors.required">first Name is required</div>
+                <div *ngIf="firstName.errors.minlength">first Name should be min of 8 character</div>
+                <div *ngIf="firstName.errors.maxlength">first Name should be max of 12 character</div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="name">Enter Your Second name</label>
+            <input type="text" class="form-control" id="name" aria-describedby="name" placeholder="Enter Your Name" name="secondname" [(ngModel)]="model.secondname" #secondname="ngModel" [ngClass]="{ 'is-invalid': f.submitted && secondname.invalid }" required minlength="8"
+                maxlength="12" />
+            <div *ngIf="f.submitted && secondname.invalid" class="invalid-feedback">
+                <div *ngIf="secondname.errors.required">Second Name is required</div>
+                <div *ngIf="secondname.errors.minlength">Second Name should be min of 8 character</div>
+                <div *ngIf="secondname.errors.maxlength">Second Name should be max of 12 character</div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="exampleInputEmail1">Email address</label>
+            <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email" name="email" [(ngModel)]="model.email" #email="ngModel" [ngClass]="{ 'is-invalid': f.submitted && email.invalid }" required>
+            <div *ngIf="f.submitted && email.invalid" class="invalid-feedback">
+                <div *ngIf="email.errors.required">Email is Should be username@gmail.com / any Domain name</div>
+
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="exampleFormControlTextarea1">Enter your Address</label>
+            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="textarea" [(ngModel)]="model.textarea" #textarea="ngModel" [ngClass]="{ 'is-invalid': f.submitted && textarea.invalid }" required minlength="8" maxlength="120"></textarea>
+            <div *ngIf="f.submitted && textarea.invalid" class="invalid-feedback">
+                <div *ngIf="textarea.errors.required">Address is required</div>
+                <div *ngIf="textarea.errors.minlength">Address should be min of 8 character</div>
+                <div *ngIf="textarea.errors.maxlength">Second Name should be max of 120 character</div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="phono">Enter ContactNo</label>
+            <input type="tel" class="form-control" id="phono" placeholder="Phoneno" name="contact" [(ngModel)]="model.contact" #contact="ngModel" [ngClass]="{ 'is-invalid': f.submitted && contact.invalid }" required minlength="10" maxlength="10">
+            <div *ngIf="f.submitted && contact.invalid" class="invalid-feedback">
+                <div *ngIf="contact.errors.required">Contact Number is required</div>
+                <div *ngIf="contact.errors.minlength">Contact Number should be min and max of 10 character</div>
+                <div *ngIf="contact.errors.maxlength">Second Name should be max of 10 character</div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="exampleFormControlSelect1">Select Course</label>
+            <select class="form-control" id="exampleFormControlSelect1" name="course" [(ngModel)]="model.course" #course="ngModel" [ngClass]="{ 'is-invalid': f.submitted && course.invalid }" required>
+                <option>HTML</option>
+                <option>CSS</option>
+                <option>Javascript</option>
+                <option>Jquery</option>
+                <option>Bootstrap</option>
+            </select>
+            <div *ngIf="f.submitted && course.invalid" class="invalid-feedback">
+                <div *ngIf="course.errors.required">course select is required</div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="created">Contact Date</label>
+            <input type="text" class="form-control" id="created" placeholder="YYYY-MM-DD" name="created" [(ngModel)]="model.created" #created="ngModel" [ngClass]="{ 'is-invalid': f.submitted && created.invalid }" required>
+            <div *ngIf="f.submitted && created.invalid" class="invalid-feedback">
+                <div *ngIf="created.errors.required">Date is required</div>
+            </div>
+        </div>
+        <button type="submit" class="btn btn-primary" id="submitform" (click)="getDetails()">Submit</button>
+    </form>
+    <div class="row mt-5">
+        <button class="btn btn-danger" (click)="getDetails()">CLICK HEAR TO GET FORM DETAILS</button>
+    </div>
+    <div class="row col-md-12 mt-5">
+        <!-- <table class="table table-bordered" id="gettable"> -->
+        <table class="table table-bordered" id="gettable" cellpadding="5" cellspacing="0" width="100%">
+            <tr *ngIf="gettingdata.length>=0" class="text-center text-info">
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Email</th>
+                <th>Address</th>
+                <th>ContactNo</th>
+                <th>Course</th>
+                <th>Contact Date</th>
+            </tr>
+            <tr *ngFor="let item of gettingdata">
+                <td>{{item.firstName}}</td>
+                <td>{{item.secondname}}</td>
+                <td>{{item.email}}</td>
+                <td>{{item.textarea}}</td>
+                <td>{{item.contact}}</td>
+                <td>{{item.course}}</td>
+                <td>{{item.created}}</td>
+            </tr>
+            <tr *ngIf="gettingdata.length==0">
+                <td colspan="7" class="text-center">There Is no Data Available</td>
+            </tr>
+        </table>
+    </div>
+
+</section>

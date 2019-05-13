@@ -1,0 +1,28 @@
+/* You can add global styles to this file, and also import other style files */
+
+.logo {
+    width: 170px;
+    height: 50px;
+}
+
+#courses a {
+    padding: 0px !important;
+}
+
+.about-company img {
+    width: 250px;
+    height: 115px;
+}
+
+.social span {
+    display: inline-block;
+    font-size: 35px;
+    margin-right: 5px;
+    background-color: aqua;
+    padding: 8px;
+    border-radius: 48%;
+}
+
+.fa-facebook-square:hover {
+    background-color: lightblue;
+}

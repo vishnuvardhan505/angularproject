@@ -1,0 +1,50 @@
+/* Make the image fully responsive */
+
+.carousel-inner img {
+    width: 100%;
+    height: 550px;
+}
+
+.carousel-indicators li {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background-color: dodgerblue;
+}
+
+.fa-chevron-circle-left,
+.fa-chevron-circle-right {
+    font-size: 40px;
+    color: dodgerblue;
+    position: relative;
+    left: -50px;
+}
+
+.fa-chevron-circle-right {
+    position: relative;
+    left: 50px;
+}
+
+@media only screen and (min-width: 360px) and (max-width: 640px) {
+    .carousel-inner img {
+        width: 100%;
+        height: 300px;
+    }
+    .carousel-indicators li {
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        background-color: dodgerblue;
+    }
+    .fa-chevron-circle-left,
+    .fa-chevron-circle-right {
+        font-size: 20px;
+        color: dodgerblue;
+        position: relative;
+        left: 5px;
+    }
+    .fa-chevron-circle-right {
+        position: relative;
+        left: -5px;
+    }
+}
